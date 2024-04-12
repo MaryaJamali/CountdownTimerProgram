@@ -8,7 +8,7 @@ let timeStop = true;
 // To prevent the timer from stopping by refreshing the browser
 const saveValue = localStorage.getItem("countdown") || false;
 if (saveValue) {
-    startClock(saveValue);
+    startTime(saveValue);
     let inputValue = new Date(saveValue);
     date.valueAsDate = inputValue;
 }
@@ -33,7 +33,7 @@ function startTime(d) {
     function updateCounter() {
         let clockLeft = (timeRemaining(d));
         // Negative time control
-        if (clockLeft.total <= 0) {
+        if (clockLeft.timeLeft <= 0) {
             timeStop = false;
         }
         for (let clock in clockLeft) {
