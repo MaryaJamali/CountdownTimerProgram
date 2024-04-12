@@ -41,3 +41,33 @@ h1:after {
     }
 }
 
+.label-date {
+    font-size: 20px;
+    color: #000;
+
+}
+
+input[type="date"] {
+    padding: 8px;
+    font-size: 18px;
+    border: 1px solid #697dd8;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.clock span {
+    display: inline-block;
+    font-size: 1em;
+    margin: 0 10px;
+    padding: 10px;
+    background-color: #4b89e7;
+    border-radius: 5px;
+    color: #fff;
+}
