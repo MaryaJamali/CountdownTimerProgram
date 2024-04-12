@@ -16,7 +16,19 @@ function currentTime(e) {
 };
 
 function startTime(d) {
-
+    function updateCounter() {
+        let clockLeft = (timeRemaining(d));
+        if (clockLeft.total <= 0) {
+            timeStop = false;
+        }
+        for (let clock in clockLeft) {
+            // Find page elements
+            let element = time.querySelector("." + clock);
+            if (element) {
+                element.innerHTML = totalTime[time];
+            }
+        }
+    }
 }
 
 function timeRemaining(d) {
@@ -26,9 +38,9 @@ function timeRemaining(d) {
 
     // Algorithm to convert milliseconds to days, hours, minutes and seconds
     let seconds = Math.floor((timeLeft / 1000) % 60);
-    let minutes = Math.floor(((timeLeft / 1000) / 60) % 60);
+    let mintues = Math.floor(((timeLeft / 1000) / 60) % 60);
     let hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
     let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
 
-    return { "timeLeft": timeLeft, "days": days, "hours": hours, "minutes": minutes, "seconds": seconds };
+    return { "timeLeft": timeLeft, "days": days, "hours": hours, "mintues": mintues, "seconds": seconds };
 }
