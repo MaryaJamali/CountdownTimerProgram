@@ -3,6 +3,12 @@ const date = document.querySelector("input[name='date']");
 const time = document.querySelector(".time");
 let timeInterval;
 let timeStop = true;
+const saveValue = localStorage.getItem("countdown") || false;
+if (saveValue) {
+    startClock(saveValue);
+    let inputValue = new Date(saveValue);
+    endDate.valueAsDate = inputValue;
+}
 // Add event to button
 date.addEventListener("change", currentTime);
 
@@ -13,7 +19,9 @@ function currentTime(e) {
     clearInterval(timeInterval);
     // Convert total time to milliseconds
     const temp = new Date(date.value);
+    localStorage.setItem("countdown", temp);
     startTime(temp);
+    timeStop = true;
 };
 
 function startTime(d) {
@@ -47,10 +55,11 @@ function timeRemaining(d) {
     let timeLeft = Date.parse(d) - Date.parse(currentDate);
 
     // Algorithm to convert milliseconds to days, hours, minutes and seconds
-    let seconds = Math.floor((timeLeft / 1000) % 60);
-    let mintues = Math.floor(((timeLeft / 1000) / 60) % 60);
-    let hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
     let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
+    let mintues = Math.floor(((timeLeft / 1000) / 60) % 60);
+    let seconds = Math.floor((timeLeft / 1000) % 60);
+
 
     return { "timeLeft": timeLeft, "days": days, "hours": hours, "mintues": mintues, "seconds": seconds };
 }
