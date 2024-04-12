@@ -1,14 +1,15 @@
 // Find page elements
 const date = document.querySelector("input[name='date']");
 const time = document.querySelector(".time");
-
-
+let timeInterval;
+let timeStop = true;
 // Add event to button
 date.addEventListener("change", currentTime);
 
 function currentTime(e) {
     // Prevent the default behavior of an event in the browser
     e.preventDefault();
+    // Every time the time is changed, the timer will start from the beginning
     clearInterval(timeInterval);
     // Convert total time to milliseconds
     const temp = new Date(date.value);
@@ -18,6 +19,7 @@ function currentTime(e) {
 function startTime(d) {
     function updateCounter() {
         let clockLeft = (timeRemaining(d));
+        // Negative time control
         if (clockLeft.total <= 0) {
             timeStop = false;
         }
@@ -25,9 +27,17 @@ function startTime(d) {
             // Find page elements
             let element = time.querySelector("." + clock);
             if (element) {
-                element.innerHTML = totalTime[time];
+                element.innerHTML = clockLeft[clock];
             }
         }
+    }
+    updateCounter();
+    if (timeStop) {
+        // Every 1000 milliseconds (that is, every second) the updateCounter function is called and its result is stored in timeInterval.
+        timeInterval = setInterval(updateCounter, 1000);
+    }
+    else {
+        clearInterval(timeInterval);
     }
 }
 
