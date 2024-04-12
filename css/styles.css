@@ -72,4 +72,21 @@ input[type="date"] {
     color: #fff;
 }
 
+footer {
+    text-align: center;
+    margin-top: 50px;
+}
 
+footer p {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+footer a {
+    color: #1446a3;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
