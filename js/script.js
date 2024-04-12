@@ -1,14 +1,18 @@
 // Find page elements
 const date = document.querySelector("input[name='date']");
 const time = document.querySelector(".time");
+
 let timeInterval;
 let timeStop = true;
+
+// To prevent the timer from stopping by refreshing the browser
 const saveValue = localStorage.getItem("countdown") || false;
 if (saveValue) {
     startClock(saveValue);
     let inputValue = new Date(saveValue);
-    endDate.valueAsDate = inputValue;
+    date.valueAsDate = inputValue;
 }
+
 // Add event to button
 date.addEventListener("change", currentTime);
 
@@ -19,6 +23,7 @@ function currentTime(e) {
     clearInterval(timeInterval);
     // Convert total time to milliseconds
     const temp = new Date(date.value);
+    // Set "localStorage" with a name and set value
     localStorage.setItem("countdown", temp);
     startTime(temp);
     timeStop = true;

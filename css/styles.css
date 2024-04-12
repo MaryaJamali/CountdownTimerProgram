@@ -55,14 +55,14 @@ input[type="date"] {
     margin-bottom: 10px;
 }
 
-.clock {
+.time {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
 }
 
-.clock span {
+.time span {
     display: inline-block;
     font-size: 1em;
     margin: 0 10px;
