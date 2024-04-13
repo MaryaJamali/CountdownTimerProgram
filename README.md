@@ -5,7 +5,6 @@
 To use this program, do the following steps :
 1. Simulate your repository:``` git clone https://github.com/MaryaJamali/CountdownTimerProgram.git```
 2. Open the HTML file in your browser.
-3. Run the program
 
 ## Use
 ⭐ Choose time 📆 : To choose your desired time, enter the desired date in the relevant field.<br>
